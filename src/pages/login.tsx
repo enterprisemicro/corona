@@ -14,6 +14,9 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
+import LoadingOverlay from 'react-loading-overlay';
+import { ClapSpinner } from "react-spinners-kit";
+
 import Copyright from '../components/common/copyright';
 import { loginAction } from '../services/auth';
 
@@ -91,6 +94,10 @@ function SignInSide(props: any) {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
+          <LoadingOverlay
+          active={true}
+          spinner={<ClapSpinner />}
+          >
           <form className={classes.form} noValidate onSubmit={(e) => submitHandler(e)}>
             <TextField
               variant="outlined"
@@ -145,6 +152,7 @@ function SignInSide(props: any) {
               <Copyright />
             </Box>
           </form>
+          </LoadingOverlay>
         </div>
       </Grid>
     </Grid>
