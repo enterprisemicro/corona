@@ -17,7 +17,7 @@ const auth = {
                         headers: {'Content-Type': 'application/json'}})
         .then((response: any) => {
           // Save token to local storage
-          localStorage.user = JSON.stringify(response.result.user);
+          localStorage.setItem('user', JSON.stringify(response.data.result.user));
           return Promise.resolve(true);
         });
     },
@@ -25,13 +25,14 @@ const auth = {
     * Logs the current user out
     */
     logout () {
-      return axios.default.post('/logout')
+      localStorage.removeItem('user');
+      return axios.default.post('/logout');
     },
     /**
     * Checks if a user is logged in
     */
     loggedIn () {
-      return !!localStorage.user
+      return !!localStorage.getItem('user');
     },
     /**
     * Registers a user and then logs them in
