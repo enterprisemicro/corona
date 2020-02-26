@@ -21,7 +21,7 @@ export default function Welcome() {
   };
 
   return (
-    <Container>
+    <div>
       <LogoMT></LogoMT>
       <Box mx="10%">
         <Grid container justify="center" style={{ marginTop: 20}} spacing={3}>
@@ -38,6 +38,6 @@ export default function Welcome() {
       <Box my={5}>
         <Copyright />
       </Box>
-    </Container>
+    </div>
   );
 }
